@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include "main.h"
+void _putchar_str(const char* str)
+{
+while (*str != '\0')
+{
+putchar(*str);
+str++;
+}
+putchar('\n');
+}
+void _putchar_char(char ch)
+{
+putchar(ch);
+putchar('\n');
+}

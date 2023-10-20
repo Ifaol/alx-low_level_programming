@@ -1,0 +1,55 @@
+#include "variadic_functions.h"
+/**
+ *print_all - char,int,float,string printing variadic function
+ *@format: char string input
+ *
+ *Return: Void
+ */
+void print_all(const char * const format, ...)
+{
+int i, index = 0;
+char c;
+char *s;
+float f;
+char current_type;
+va_list args;
+va_start(args, format);
+while (format[index] != '\0')
+{
+current_type = format[index];
+while (index++)
+{
+printf(", ");
+break;
+}
+switch (current_type)
+{
+case 'c':
+c = (char) va_arg(args, int);
+printf("%c", c);
+break;
+case 'i':
+i = va_arg(args, int);
+printf("%d", i);
+break;
+case 'f':
+f = (float) va_arg(args, double);
+printf("%f", f);
+break;
+case 's':
+s = va_arg(args, char *);
+if (s == NULL)
+{
+printf("(nil)");
+}
+if (s != NULL)
+{
+printf("%s", s);
+}
+break;
+}
+index++;
+}
+va_end(args);
+printf("\n");
+}

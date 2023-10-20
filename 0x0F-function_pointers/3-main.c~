@@ -1,0 +1,21 @@
+#include "3-calc.h"
+/**
+ *
+ *
+ *
+ *
+ */
+int main(argc, argv[])
+{
+int num1, num2;
+char *s;
+if (argc != 4)
+{
+printf("Error\n");
+exit(98);
+}
+num1 = atoi(argv[1]);
+num2 = atoi(argv[3]);
+*s = argv[2];
+get_op_func(s)(num1, num2);
+}

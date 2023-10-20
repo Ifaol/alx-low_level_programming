@@ -1,0 +1,28 @@
+x#include "main.h"
+/**
+ *print_last_digit-a print ld function
+ *
+ *@n: is an input to this function
+ *
+ *Return: The last digit of n
+ */
+int _abs(int n);
+int print_last_digit(int n)
+{
+int abs, num;
+/* print the last digit of n */
+abs = _abs(n);
+num = abs % 10;
+return (num);
+}
+int _abs(int n)
+{
+if (n < 0)
+{
+return (-n);
+}
+else
+{
+return (n);
+}
+}

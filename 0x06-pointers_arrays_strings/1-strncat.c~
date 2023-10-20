@@ -1,0 +1,38 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ *_strcat-concacate strings
+ *@s: string input to _strlen func
+ *@dest: destination string input
+ *@src: source string input
+ *Return: string pointer to dest
+ */
+int _strlen(char *s);
+char *_strcat(char *dest, char *src)
+{
+int i, l, n = 0;
+l = _strlen(dest);
+for (i = l ; src[n] != '\0' ; i++)
+{
+dest[i] = src[n];
+n++;
+}
+dest[i] = '\0';
+return (dest);
+}
+#include "main.h"
+#include <stdio.h>
+/**
+ *_strlen-count no. of str
+ *@s: pointer input to zs func
+ *Return: No of char in str
+ */
+int _strlen(char *s)
+{
+int i, count = 0;
+for (i = 0 ; s[i] != '\0' ; i++)
+{
+count++;
+}
+return (count);
+}

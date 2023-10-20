@@ -1,0 +1,41 @@
+#include "main.h"
+#include <stdio.h>
+/**
+ *_strncpy-concacate strings
+ *@s: string input to _strlen fun
+ *@dest: destination string input
+ *@src: source string input
+ *@n: int input for strncat func
+ *Return: string pointer to dest
+ */
+int _strlen(char *s);
+char *_strncpy(char *dest, char *src, int n)
+{
+int i, l;
+ld = _strlen(dest);
+ls = _strlen(src);
+ if (
+for (i = 0 ; src[i] != '\0' && i < n ; i++)
+{
+dest[i] = src[i];
+}
+ if (i
+dest[l + i] = '\0';
+return (dest);
+}
+#include "main.h"
+#include <stdio.h>
+/**
+ *_strlen-count no. of str
+ *@s: pointer input to zs func
+ *Return: No of char in str
+ */
+int _strlen(char *s)
+{
+int i, count = 0;
+for (i = 0 ; s[i] != '\0' ; i++)
+{
+count++;
+}
+return (count);
+}

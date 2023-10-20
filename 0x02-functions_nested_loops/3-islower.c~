@@ -1,0 +1,11 @@
+#include "main.h"
+/**
+ *_islower-islower function
+ *
+ *Return: void
+ */
+int _islower(int c)
+{
+/* print 1 if lowercase & 0 else */
+return (c <= 'a' && c <= 'z' );
+}

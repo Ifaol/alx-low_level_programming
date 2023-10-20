@@ -1,0 +1,54 @@
+#include "main.h"
+/**
+ *_rev_recursion-puts in rev func
+ *@s: string input
+ *
+ *Return: reversed string
+ */
+char * _rev_recursion(char *s)
+{
+while (*s != '\0')
+{
+_rev_recursion(s + 1);
+return (s);
+}
+return (s);
+}
+#include "main.h"
+/**
+ *is_palindrome_helper-puts in rev func
+ *@s: string input
+ *
+ *Return: 1 for palindrome and 0 for else
+ */
+int is_palindrome_helper(char *s)
+{
+char *s_rev;
+s_rev = _rev_recursion(s);
+if (*s == *s_rev)
+{
+return (1);
+}
+else
+{
+return (0);
+}
+}
+#include "main.h"
+/**
+ *is_palindrome-a palindrome identifier function with recursion
+ *@s: string input
+ *
+ *Return: 1 if string is palindrome and 0 for else
+ */
+int is_palindrome(char *s)
+{
+if (*s == '\0')
+{
+return (1);
+}
+else
+{
+return (is_palindrome_helper(s));
+}
+}

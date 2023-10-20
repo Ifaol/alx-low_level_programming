@@ -1,0 +1,27 @@
+#include "main.h"
+/**
+ *getProgrameName-a program name return function
+ *@argv: input vector
+ *
+ *Return: programe name ponter
+ */
+const char * getProgrameName(char * argv[])
+{
+return (argv[0]);
+}
+#include "main.h"
+/**
+ *main-a print its name function
+ *@argv: input string
+ *@argc: input int
+ *Return: Always 0 (success)
+ */
+int main(int argc, char *argv[])
+{
+int i;
+const char * programeName;
+(void)argc;
+programeName = getProgrameName(argv);
+printf("%s\n", programeName);
+return (0);
+}

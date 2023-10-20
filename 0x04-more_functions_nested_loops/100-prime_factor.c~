@@ -1,0 +1,10 @@
+#include "main.h"
+/**
+ *main-triangle of # print function
+ *Return: Always 0 (success)
+ */
+int main(void)
+  int i, n = 612852475143, maxPrime = -1;
+while (n % 2 == 0) {
+        maxPrime = 2;
+        n /= 2;

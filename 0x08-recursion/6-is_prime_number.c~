@@ -1,0 +1,47 @@
+#include "main.h"
+/**
+ *
+ *
+ *
+ */
+int is_prime_number_helper(int n, int div)
+{
+if (div <= n / 3)
+{
+if (n % div == 0)
+{
+return (1);
+}
+else
+{
+return (is_prime_number_helper(n, div + 1));
+}
+else
+{
+return (0);
+}
+}
+return (0);
+}
+#include "main.h"
+/**
+ *is_prime_number-a x to y power function with recursion
+ *@n: int input
+ *
+ *Return: 1 if prime input 0 else
+ */
+int is_prime_number(int n)
+{
+if (n < 2)
+{
+return (0);
+}
+else if (n == 2)
+{
+return (1);
+}
+else
+{
+return (is_prime_number_helper(n, 2));
+}
+}

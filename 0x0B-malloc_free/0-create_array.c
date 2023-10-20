@@ -1,0 +1,32 @@
+#include "main.h"
+/**
+ *create_array-array creator function with malloc
+ *@size: input size of z array
+ *@c: input char
+ *
+ *Return: pointer to z array
+ */
+char *create_array(unsigned int size, char c)
+{
+unsigned int i;
+char *arr;
+if (size == 0)
+{
+return ('\0');
+}
+arr = (char *)malloc(size * sizeof(char));
+if (arr == NULL)
+{
+return ('\0');
+}
+else
+{
+for (i = 0 ; i < size ; i++)
+{
+*(arr + i) = c;
+}
+*(arr + size) = '\0';
+}
+return (arr);
+free(arr);
+}

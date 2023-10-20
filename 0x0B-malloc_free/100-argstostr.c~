@@ -1,0 +1,63 @@
+#include "main.h"
+/**
+ *
+ *
+ *
+ *
+ */
+char *my_strcpy(const char *src)
+{
+int i, len = 0;
+char *dup_str = NULL;
+for (i = 0 ; src[i] != '\0' ; i++)
+{
+len = len + 1;
+}
+dup_str = (char *)malloc(len + 1);
+if (dup_str == NULL)
+{
+return (NULL);
+}
+for (i = 0 ; i <= len ; i++)
+{
+dup_str[i] = src[i];
+}
+return (dup_str);
+}
+#include "main.h"
+/**
+ *free_grid-2d array freeing function with malloc
+ *@height: input size of z array
+ *@grid: input double string
+ *
+ *Return: void
+ */
+char **arg_sto_str(int ac, char **av)
+{
+char **argv = NULL;
+int i, j;
+if (ac == 0 || av == NULL)
+{
+return (NULL);
+}
+argv = (char **)malloc((ac + 1) * sizeof(char *));
+if (argv == NULL)
+{
+return (NULL);
+}
+for (i = 0 ; i < ac ; i++)
+{
+argv[i] = my_strcpy(av[i]);
+if (argv[i] == NULL)
+{
+for (j = 0 ; j <= i ; j++)
+{
+free(argv[j]);
+}
+free(argv);
+return (NULL);
+}
+}
+argv[ac] = NULL;
+return (argv);
+}
