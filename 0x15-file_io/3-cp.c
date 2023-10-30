@@ -43,34 +43,30 @@ exit(code);
 void copy_file(const char *file_from, const char *file_to)
 {
 int fd_from, fd_to;
-ssize_t bytes_read, bytes_written;
+ssize_t bytes_read = 1024, bytes_written;
 char buffer[1024];
 fd_from = open(file_from, O_RDONLY);
 if (fd_from == -1)
 {
 error_exit(98, "Can't read from file", file_from);
 }
-fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 if (fd_to == -1)
 {
-close(fd_from);
 error_exit(99, "Can't write to file", file_to);
 }
-bytes_read = read(fd_from, buffer, 1024);
-while (bytes_read > 0)
+while (bytes_read == 1024)
 {
+bytes_read = read(fd_from, buffer, 1024);
+if (bytes_read == -1)
+{
+error_exit(98, "Can't read from file", file_from);
+}
 bytes_written = write(fd_to, buffer, bytes_read);
 if (bytes_written == -1)
 {
-close(fd_from), close(fd_to);
 error_exit(99, "Can't write to file", file_to);
 }
-bytes_read = read(fd_from, buffer, 1024);
-}
-if (bytes_read == -1)
-{
-close(fd_from), close(fd_to);
-error_exit(98, "Can't read from file", file_from);
 }
 if (close(fd_from) == -1)
 {
