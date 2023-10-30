@@ -12,7 +12,7 @@ const char *file_from = NULL;
 const char *file_to = NULL;
 if (argc != 3)
 {
-dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 exit(97);
 }
 file_from = argv[1];
@@ -24,13 +24,13 @@ return (0);
  *error_exit - a function zt prints provided error and exit code
  *@code: error code
  *@message: error message
- *@file: pointer to a file name
+ *@file_name: pointer to a file name
  *
  *Return: void
  */
-void error_exit(int code, const char *message, const char *file)
+void error_exit(int code, const char *message, const char *file_name)
 {
-dprintf(STDERR_FILENO, "Error: %s %s\n", message, file);
+dprintf(STDERR_FILENO, "Error: %s %s\n", message, file_name);
 exit(code);
 }
 /**
@@ -53,7 +53,7 @@ error_exit(98, "Can't read from file", file_from);
 fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 if (fd_to == -1)
 {
-error_exit(99, "Can't write to file", file_to);
+error_exit(99, "Can't write to", file_to);
 }
 while (bytes_read == 1024)
 {
@@ -65,7 +65,7 @@ error_exit(98, "Can't read from file", file_from);
 bytes_written = write(fd_to, buffer, bytes_read);
 if (bytes_written == -1)
 {
-error_exit(99, "Can't write to file", file_to);
+error_exit(99, "Can't write to", file_to);
 }
 }
 if (close(fd_from) == -1)
