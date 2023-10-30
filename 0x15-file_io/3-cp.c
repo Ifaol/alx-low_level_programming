@@ -56,18 +56,17 @@ if (fd_to == -1)
 close(fd_from);
 error_exit(99, "Can't write to", file_to);
 }
-while (bytes_read > 0)
+while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
 {
-bytes_read = read(fd_from, buffer, 1024);
-if (bytes_read == -1)
-{
-error_exit(98, "Can't read from file", file_from);
-}
 bytes_written = write(fd_to, buffer, bytes_read);
 if (bytes_written == -1)
 {
 error_exit(99, "Can't write to", file_to);
 }
+}
+if (bytes_read == -1)
+{
+error_exit(98, "Can't read from file", file_from);
 }
 if (close(fd_from) == -1)
 {
