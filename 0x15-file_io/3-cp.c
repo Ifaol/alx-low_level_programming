@@ -50,7 +50,7 @@ if (fd_from == -1)
 {
 error_exit(98, "Can't read from file", file_from);
 }
-fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
+fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 if (fd_to == -1)
 {
 close(fd_from);
