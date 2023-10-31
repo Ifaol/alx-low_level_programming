@@ -18,7 +18,7 @@ for (i = 0 ; i < n ; i++)
 {
 if (*s1 != *s2)
 {
-return ((int)((*s1)-(*s2)));
+return ((int)((*s1) - (*s2)));
 }
 if (*s1 == '\0')
 {
@@ -57,7 +57,7 @@ void read_file(int fd, char *buf, size_t count)
 {
 int read_return;
 read_return = read(fd, buf, count);
-if ( read_return == -1)
+if (read_return == -1)
 {
 write(STDERR_FILENO, "Error: Can't read from file\n", 28);
 exit(98);
@@ -277,7 +277,7 @@ while (address_size && !*(--buffer))
 printf("%x", *buffer & 0xff);
 while (--address_size > 0)
 {
-printf("%02x", *(--buffer) & 0xff);
+printf("%02x", *(--buffer)&0xff);
 }
 }
 printf("\n");
