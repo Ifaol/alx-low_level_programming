@@ -5,7 +5,7 @@
  *
  *Return: no of chars written
  */
-char _putchar(char char_to_be_written)
+int _putchar(char char_to_be_written)
 {
 if (write(1, &char_to_be_written, 1) == -1)
 {

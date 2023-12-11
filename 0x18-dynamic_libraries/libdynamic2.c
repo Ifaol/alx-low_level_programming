@@ -40,9 +40,9 @@ return (count);
 void _puts(char *s)
 {
 int j;
-for (j = 0 ; ptr[j] != '\0' ; j++)
+for (j = 0 ; s[j] != '\0' ; j++)
 {
-_putchar(ptr[j]);
+_putchar(s[j]);
 }
 }
 /**
@@ -76,16 +76,16 @@ return (dest);
 int _atoi(char *s)
 {
 int num = 0, i = 0, sign = 1, start = 0;
-if (src[0] == '-')
+if (s[0] == '-')
 {
 sign = -1;
 start = 1;
 }
-for (i = start ; src[i] != '\0' ; i++)
+for (i = start ; s[i] != '\0' ; i++)
 {
-if (src[i] >= '0' && src[i] <= '9')
+if (s[i] >= '0' && s[i] <= '9')
 {
-num = (num * 10) + (src[i] - '0');
+num = (num * 10) + (s[i] - '0');
 }
 else
 {

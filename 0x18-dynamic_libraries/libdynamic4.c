@@ -54,7 +54,7 @@ return (NULL);
  */
 unsigned int _strspn(char *s, char *accept)
 {
-int is_found;
+int is_found, c = 0;
 char *ptr_span = s;
 char *ptr_set = accept;
 while (*ptr_span != '\0')
