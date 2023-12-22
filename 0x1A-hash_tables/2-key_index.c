@@ -13,5 +13,5 @@ if (size >= 1 && key != NULL)
 {
 hash_value = hash_djb2(key);
 }
-return (hash_value);
+return (hash_value % size);
 }
