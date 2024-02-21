@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module calculates the parimeters of a landmass in a given rectangular grid.
+This module calculates the parimeters of a given rectangular grid.
 """
 
 
@@ -13,7 +13,7 @@ def island_perimeter(grid):
     Return:
         Perimeter: int
     """
-    
+
     perimeter = 0
     for i in range(len(grid)):
         for j in range(len(grid[0])):
